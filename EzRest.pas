@@ -7,7 +7,9 @@ uses
 
   System.JSON,
   System.SysUtils,
-  System.Classes;
+  System.Classes,
+
+  Utils.Errors;
 
 type
 
