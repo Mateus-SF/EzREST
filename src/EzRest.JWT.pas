@@ -11,16 +11,17 @@ uses
   Horse,
   Horse.JWT,
   JOSE.Core.JWT,
-  JOSE.Core.Builder;
+  JOSE.Core.Builder,
+  JOSE.Core.JWK;
 
-function CriarAccessToken(
+function CreateAccessToken(
   const ID: String;
   const Role: String;
   const Scopes: TArray<String>;
   out Expiration: TDateTime
 ): String; overload;
 
-function CriarAccessToken(
+function CreateAccessToken(
   const ID: String;
   const EmpresaID: String;
   const EmpresaCNPJ: String;
@@ -84,14 +85,15 @@ begin
 
 end;
 
-function CriarAccessToken(
+function CreateAccessToken(
   const ID: String;
   const Role: String;
   const Scopes: TArray<String>;
   out Expiration: TDateTime
 ): String;
 var
-  Token: TJWT;
+  Token : TJWT;
+  Key   : TJWK;
 
 begin
 
@@ -114,7 +116,7 @@ begin
 
 end;
 
-function CriarAccessToken(
+function CreateAccessToken(
   const ID: String;
   const EmpresaID: String;
   const EmpresaCNPJ: String;
