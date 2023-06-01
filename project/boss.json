@@ -1,0 +1,12 @@
+{
+	"name": "EzREST",
+	"description": "EzREST is a library that provides tools to streamline the development of REST APIs",
+	"version": "1.0.0",
+	"homepage": "https://github.com/Mateus-SF/EzREST",
+	"mainsrc": "./src",
+	"projects": [],
+	"dependencies": {
+		"github.com/hashload/horse": "^3.1.1",
+		"github.com/hashload/horse-jwt": "^2.0.13"
+	}
+}
