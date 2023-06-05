@@ -17,6 +17,22 @@ type
 
   end;
 
+  EInvalidBody = class(EHorseException)
+
+  public
+
+    constructor Create(); reintroduce;
+
+  end;
+
+  ERequiredField = class(EHorseException)
+
+  public
+
+    constructor Create(const pError: String); reintroduce;
+
+  end;
+
 implementation
 
 { EInsufficientPermission }
@@ -38,6 +54,30 @@ begin
 
   Error('Insufficient Permission: ' + Scope);
   Status(THTTPStatus.Unauthorized);
+
+end;
+
+{ EInvalidBody }
+
+constructor EInvalidBody.Create;
+begin
+
+  inherited Create();
+
+  Error('Invalid body');
+  Status(THTTPStatus.BadRequest);
+
+end;
+
+{ ERequiredField }
+
+constructor ERequiredField.Create(const pError: String);
+begin
+
+  inherited Create();
+
+  Error(pError);
+  Status(THTTPStatus.BadRequest);
 
 end;
 

@@ -9,7 +9,7 @@ uses
   System.SysUtils,
   System.Classes,
 
-  Utils.Errors;
+  EzRest.Errors;
 
 type
 
