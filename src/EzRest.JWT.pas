@@ -8,6 +8,8 @@ uses
   System.JSON,
   System.Classes,
 
+  Utils.Consts,
+
   Horse,
   Horse.JWT,
   JOSE.Core.JWT,
@@ -107,7 +109,7 @@ begin
     Token.Claims.SetClaim('role', Role);
     Token.Claims.SetClaim('scopes', ScopesArrayToStr(Scopes));
 
-    Result := TJOSE.SHA256CompactToken('Santana$oft.2007', Token);
+    Result := TJOSE.SHA256CompactToken(SECRET_KEY, Token);
 
   finally
     FreeAndNil(Token);
@@ -143,7 +145,7 @@ begin
     Token.Claims.SetClaim('role', Role);
     Token.Claims.SetClaim('scopes', ScopesArrayToStr(Scopes));
 
-    Result := TJOSE.SHA256CompactToken('Santana$oft.2007', Token);
+    Result := TJOSE.SHA256CompactToken(SECRET_KEY, Token);
 
   finally
     FreeAndNil(Token);
