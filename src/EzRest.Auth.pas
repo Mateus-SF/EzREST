@@ -9,6 +9,8 @@ uses
   Horse,
   Horse.JWT,
 
+  Utils.Consts,
+
   System.JSON,
 
   EzRest.JWT,
@@ -80,7 +82,7 @@ procedure Auth(Req: THorseRequest; Res: THorseResponse; Next: TProc);
 begin
 
   HorseJWT(
-    'Santana$oft.2007',
+    SECRET_KEY,
     THorseJWTConfig.New
       .SkipRoutes(['auth/usuario', 'auth/login'])
   )(Req, Res, Next);
